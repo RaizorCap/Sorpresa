@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Galería de Amor 💖</title>
+  <link rel="stylesheet" href="Galeria.css">
+</head>
+<body>
+  <!-- Corazones flotantes -->
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1>✨ Galería de Nuestro Amor ✨</h1>
+    </div>
+
+    <div class="categories-grid">
+      <div class="category-card" data-category="amor">
+        <div class="category-emoji">💕</div>
+        <div class="category-title">Amor</div>
+      </div>
+
+      <div class="category-card" data-category="confianza">
+        <div class="category-emoji">🤝</div>
+        <div class="category-title">Confianza</div>
+      </div>
+
+      <div class="category-card" data-category="tesoro">
+        <div class="category-emoji">💎</div>
+        <div class="category-title">Tesoro</div>
+      </div>
+
+      <div class="category-card" data-category="tiempo">
+        <div class="category-emoji">⏰</div>
+        <div class="category-title">Tiempo</div>
+      </div>
+
+      <div class="category-card" data-category="promesas">
+        <div class="category-emoji">🤞</div>
+        <div class="category-title">Promesas</div>
+      </div>
+
+      <div class="category-card" data-category="recuerdos">
+        <div class="category-emoji">📸</div>
+        <div class="category-title">Recuerdos</div>
+      </div>
+
+      <div class="category-card" data-category="objetivos">
+        <div class="category-emoji">🎯</div>
+        <div class="category-title">Objetivos</div>
+      </div>
+
+      <div class="category-card" data-category="futuro">
+        <div class="category-emoji">🌟</div>
+        <div class="category-title">Futuro Juntos</div>
+      </div>
+
+      <div class="category-card" data-category="cariño">
+        <div class="category-emoji">🌸</div>
+        <div class="category-title">Cariño</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón para siguiente página -->
+  <button class="next-btn" id="nextBtn"></button>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-close" id="modalClose"></div>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-content">
+        <h2 class="modal-title" id="modalTitle">Amor</h2>
+        <p class="modal-text" id="modalText">
+          Tu amor es la luz que ilumina cada uno de mis días...
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Corazones flotantes
+    const floatingContainer = document.getElementById('floatingHearts');
+    const heartEmojis = ['💕', '💖', '💗', '💓', '💝', '🌸', '✨'];
+    
+    function createFloatingHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+      heart.style.animationDelay = Math.random() * 3 + 's';
+      floatingContainer.appendChild(heart);
+      
+      setTimeout(() => heart.remove(), 13000);
+    }
+    
+    setInterval(createFloatingHeart, 1000);
+    for(let i = 0; i < 6; i++) {
+      setTimeout(createFloatingHeart, i * 300);
+    }
+
+    // Contenido de las categorías
+    const categoryContent = {
+      amor: {
+        emoji: '💕',
+        title: 'Amor Infinito',
+        text: 'Mi amor por ti crece cada día más. Eres la razón por la que sonrío, la luz que ilumina mis días oscuros y el latido que mantiene vivo mi corazón. Cada momento contigo es un regalo que atesoro profundamente. Te amo con todo mi ser, hoy y siempre. 💖'
+      },
+      confianza: {
+        emoji: '🤝',
+        title: 'Confianza Mutua',
+        text: 'Contigo he aprendido el verdadero significado de la confianza. Eres mi refugio seguro, la persona con quien puedo ser yo mismo sin miedos. Gracias por creer en nosotros y por construir juntos esta base sólida de respeto y honestidad. 🌟'
+      },
+      tesoro: {
+        emoji: '💎',
+        title: 'Mi Tesoro',
+        text: 'Eres el tesoro más valioso que la vida me ha dado. No hay riqueza material que pueda compararse con tu amor, tu risa y tu presencia en mi vida. Cada día a tu lado es como descubrir una nueva joya que hace mi existencia más brillante. 💍'
+      },
+      tiempo: {
+        emoji: '⏰',
+        title: 'Nuestro Tiempo',
+        text: 'El tiempo contigo nunca es suficiente. Cada segundo a tu lado vale oro, cada minuto es una aventura y cada hora es un regalo. Quiero compartir contigo todos los momentos: los buenos, los difíciles y los extraordinarios. ⌛'
+      },
+      promesas: {
+        emoji: '🤞',
+        title: 'Promesas del Corazón',
+        text: 'Te prometo estar a tu lado en cada paso del camino. Prometo amarte en tus días buenos y apoyarte en los difíciles. Prometo hacerte sonreír cuando estés triste y celebrar contigo cada victoria. Esta es mi promesa eterna para ti. 💫'
+      },
+      recuerdos: {
+        emoji: '📸',
+        title: 'Recuerdos Hermosos',
+        text: 'Cada momento vivido contigo se convierte en un recuerdo precioso que guardo en mi corazón. Desde nuestra primera conversación hasta hoy, cada risa, cada abrazo y cada instante juntos forma parte de nuestra historia de amor. 🎞️'
+      },
+      objetivos: {
+        emoji: '🎯',
+        title: 'Objetivos Juntos',
+        text: 'Contigo quiero alcanzar todas las metas que nos propongamos. Sueño con construir un futuro donde nuestros objetivos se entrelacen, donde cada logro sea de ambos y cada desafío lo superemos juntos, de la mano. 🚀'
+      },
+      futuro: {
+        emoji: '🌟',
+        title: 'Nuestro Futuro',
+        text: 'Cuando pienso en el futuro, solo te veo a ti a mi lado. Sueño con construir una vida juntos, llena de amor, aventuras y momentos inolvidables. Quiero envejecer contigo, crecer juntos y hacer realidad todos nuestros sueños compartidos. 🌈'
+      },
+      cariño: {
+        emoji: '🌸',
+        title: 'Cariño Sincero',
+        text: 'Mi cariño por ti es puro y sincero. Cada gesto, cada palabra y cada detalle que tengo contigo nace del corazón. Eres la persona que cuido, que valoro y que quiero proteger siempre. Tu felicidad es mi felicidad. 🌺'
+      }
+    };
+
+    // Modal
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText = document.getElementById('modalText');
+    const modalImage = document.getElementById('modalImage');
+
+    // Abrir modal
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const category = card.dataset.category;
+        const content = categoryContent[category];
+        
+        modalTitle.textContent = content.title;
+        modalText.textContent = content.text;
+        modalImage.innerHTML = `<div style="font-size: 80px; animation: heartPulse 1.5s ease infinite;">${content.emoji}</div>`;
+        
+        modalBackdrop.classList.add('show');
+      });
+    });
+
+    // Cerrar modal
+    modalClose.addEventListener('click', () => {
+      modalBackdrop.classList.remove('show');
+    });
+
+    modalBackdrop.addEventListener('click', (e) => {
+      if(e.target === modalBackdrop) {
+        modalBackdrop.classList.remove('show');
+      }
+    });
+
+    // Botón de siguiente página
+    const nextBtn = document.getElementById('nextBtn');
+    
+    nextBtn.addEventListener('click', () => {
+      window.location.href = 'Mensaje.html';
+    });
+  </script>
+</body>
+</html>

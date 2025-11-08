@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mi Mensaje Para Ti 💌</title>
+  <link rel="stylesheet" href="Mensaje.css">
+</head>
+<body>
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <div class="container">
+    <div class="message-card">
+
+      <div class="message-header reveal fade-up">
+        <h1 class="message-title">💌 Para Ti, Mi Amor 💌</h1>
+        <p class="message-subtitle">Anahí, estas palabras nacen desde lo más profundo de mi corazón</p>
+      </div>
+
+      <div class="message-section reveal fade-up">
+        <span class="section-icon">💕</span>
+        <h2 class="section-title">Mi Amor Por Ti</h2>
+        <p class="section-text">
+          Cada día que pasa, mi amor por ti crece de formas que nunca imaginé posibles. Eres esa luz que ilumina hasta mis días más oscuros, la razón por la que mi corazón late con tanta fuerza. 
+          Cuando pienso en ti, todo tiene sentido. No hay palabras suficientes para expresar lo que significas para mí, pero quiero que sepas que eres y serás siempre el amor de mi vida.
+        </p>
+      </div>
+
+      <div class="message-section reveal slide-in">
+        <span class="section-icon">🤝</span>
+        <h2 class="section-title">Confianza Absoluta</h2>
+        <p class="section-text">
+          Quiero que confíes en mí como yo confío en ti. Juntos hemos construido algo hermoso, y esa base de confianza es lo que nos hace invencibles. Sé que puedo contarte todo, que eres mi refugio seguro, 
+          y quiero ser ese mismo lugar para ti. Cada secreto, cada sueño, cada miedo... quiero compartirlo todo contigo, porque sé que en tus brazos siempre encontraré comprensión y amor.
+        </p>
+      </div>
+
+      <div class="message-section reveal fade-up">
+        <span class="section-icon">🌟</span>
+        <h2 class="section-title">Esperando Nuestro Momento</h2>
+        <p class="section-text">
+          Cada día espero con ansias el momento en que podamos estar juntos sin limitaciones. Sueño con esos días donde cada mañana despierte a tu lado, donde cada atardecer lo contemplemos juntos. 
+          La espera es difícil, lo sé, pero cada segundo vale la pena porque sé que al final del camino estarás tú, y eso hace que todo tenga sentido.
+        </p>
+      </div>
+
+      <div class="message-section reveal slide-in">
+        <span class="section-icon">🎁</span>
+        <h2 class="section-title">Compartir Mi Vida Contigo</h2>
+        <p class="section-text">
+          Quiero compartir cada momento contigo. Las risas, las aventuras, los silencios cómodos, incluso los momentos difíciles. 
+          Quiero que seas parte de cada paso que doy, porque todo es mejor cuando estás a mi lado. 
+          Desde una simple taza de café por la mañana hasta los grandes planes del futuro, todo quiero vivirlo contigo.
+        </p>
+      </div>
+
+      <div class="final-message reveal fade-up">
+        <p class="final-message-text">🌸 Mi mayor deseo es verte feliz 🌸</p>
+        <p class="section-text">Gracias por ser parte de mi vida, por inspirarme, por llenarme de amor incluso a la distancia.  
+        Cada palabra aquí escrita está pensada solo para ti, con todo mi cariño y esperanza. 💖</p>
+        <p class="signature">— Con amor eterno, Tu Roly 💞</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Animación de corazones flotantes
+    const floatingHearts = document.getElementById('floatingHearts');
+    const emojis = ['💖','💘','💕','💗','💓','💞'];
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+      floatingHearts.appendChild(heart);
+    }
+
+    // Efectos reveal + fade-up + slide-in
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.reveal, .fade-up, .slide-in').forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
